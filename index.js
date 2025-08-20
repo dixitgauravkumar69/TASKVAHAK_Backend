@@ -35,5 +35,11 @@ app.use("/api/hod", hodRoutes);
 app.use("/api/hod", facultyListRoutes);
 app.use("/api/faculty",facultyTaskspreRoute);
 app.use("/api/faculty",facultyTaskp);
+
+
+app.get("/", (req, res) => {
+  res.send("Welcome to TASKVAHAK API");
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
