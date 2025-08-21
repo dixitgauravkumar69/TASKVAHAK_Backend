@@ -43,7 +43,7 @@ export const createUser = async (req, res) => {
 
         <p style="margin-top: 20px;">
           You can log in using the link below:<br/>
-          <a href="http://localhost:3000/login" 
+          <a href="https://taskvahak.vercel.app/login" 
              style="background-color: #2d89ef; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">
              🔑 Login to TASKVAHAK
           </a>
