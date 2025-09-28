@@ -42,13 +42,21 @@ router.get("/facultylist", async (req, res) => {
 
 router.get("/hod-tasks", async (req, res) => {
   try {
-    const Hodtasklist = await HODTask.find().lean(); // use .lean() to get plain JS objects
+    const { branch } = req.query; // frontend se branch query ayegi
+    
+    let query = {};
+    if (branch) {
+      query.branch = { $regex: new RegExp(branch, "i") }; // case-insensitive filter
+    }
+
+    const Hodtasklist = await HODTask.find(query).lean(); 
     res.status(200).json(Hodtasklist);
   } catch (error) {
     console.error("Error fetching HOD tasks:", error);
     res.status(500).json({ error: "Failed to fetch HOD tasks" });
   }
 });
+
 
 
 /**

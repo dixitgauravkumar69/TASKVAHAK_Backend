@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.get("/tasks", async (req, res) => {
   try {
-    const { branch } = req.query; // branch will come from frontend query param
-    console.log(branch);
+    const { branch } = req.query; 
+    
 
     const filter = { assignedRole: "HOD" };
-    if (branch) filter.branch = branch; // apply branch filter if provided
+    if (branch) filter.branch = branch; 
 
     const tasks = await Tasks.find(filter);
     res.status(200).json(tasks);
